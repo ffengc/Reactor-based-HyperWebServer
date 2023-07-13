@@ -1,0 +1,34 @@
+
+
+#include "TcpServer.hpp"
+#include <memory>
+
+/* 1+1X2+2X3*3X4/0X3+4 */
+
+void BusinessLogic(Connection *conn, std::string &request)
+{
+    // 1. 反序列化
+    // 2. 业务处理
+    // 3. 构建应答
+    logMessage(DEBUG, "BusinessLogic been called, request: %s", request.c_str());
+    // 因为这里都是字符串处理所以这里就不搞这么麻烦了，统一回复，我们主要的工作是IO的部分
+    // respones: request
+    // respones: 1+1
+    std::string sendstr = "respones:" + request + "X";
+    // 4. 交给服务器进行发送
+    conn->__out_buffer += sendstr;
+    // 5. 让底层的TcpServer，让它开始发送
+    //  a. 要有发送的逻辑
+    //  b. 开启发送
+    //      一旦我们开启EPOLLOUT，epoll会立马出发一次事件就绪
+    //      如果后续保持发送的开启，epoll会一直发送
+    // 这里也要设置一下，允许发送
+    conn->__tsvr->EnableReadWrite(conn, true, true);
+}
+
+int main()
+{
+    std::unique_ptr<TcpServer> svr(new TcpServer());
+    svr->Dispather(BusinessLogic);
+    return 0;
+}

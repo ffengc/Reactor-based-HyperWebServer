@@ -1,0 +1,285 @@
+/*--------------------------------------------------
+    ## All responsive style
+---------------------------------------------------*/
+@media all and (min-width: 1399px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1140px;
+  }
+}
+@media all and (max-width: 1440px) {
+}
+@media all and (max-width: 1399px) {
+}
+@media all and (max-width: 1280px) {
+}
+@media all and (max-width: 1199px) {
+  .pd-top-150 {
+    padding-top: 120px;
+  }
+  .pd-top-140 {
+    padding-top: 110px;
+  }
+  .pd-top-130 {
+    padding-top: 100px;
+  }
+  .pd-top-120 {
+    padding-top: 90px;
+  }
+  .pd-bottom-65 {
+    padding-bottom: 35px;
+  }
+  .author-insta-bio .insta-bio-data,
+  .author-insta-bio .bio-data,
+  .widget_author_bio .insta-bio-data,
+  .widget_author_bio .bio-data {
+    left: 16px;
+  }
+  .banner-slider-2 .banner-inner h2 {
+    font-size: 23px;
+  }
+}
+@media all and (min-width: 1024px) {
+  .lawel-header-left .nav-right-part,
+  .navbar-area .lawel-header-left .logo {
+    display: none;
+  }
+}
+@media all and (max-width: 991px) {
+  .navbar-area {
+    background: #fff;
+  }
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children:before {
+    right: 3px !important;
+  }
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children {
+    padding-right: 0px;
+    margin-right: 0px;
+  }
+  .navbar-area .nav-container .navbar-collapse .navbar-nav > li {
+    border-bottom: 1px solid #fff;
+  }
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children
+    .sub-menu
+    li
+    a {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    padding-left: 0;
+    margin-left: 20px;
+  }
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children
+    .sub-menu
+    li {
+    border: 0;
+  }
+  .navbar-area
+    .nav-container
+    .navbar-collapse
+    .navbar-nav
+    li.menu-item-has-children
+    .sub-menu
+    li:last-child
+    a {
+    border-bottom: 0;
+  }
+  .navbar-area .nav-container {
+    padding: 15px 35px 15px;
+  }
+  .blog-post-item-wrap .post-content {
+    padding-top: 0;
+  }
+  .comments-inner-wrap .commentlist .comment .children {
+    margin-left: 55px;
+  }
+  .blog-post-item-wrap .post-content h2 {
+    font-size: 36px;
+  }
+  .navbar-area .lawel-header-left {
+    width: inherit;
+    display: block;
+    text-align: center;
+    position: relative;
+  }
+  .side-menu-bar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .lawel-header-left .nav-right-part {
+    width: auto;
+    position: absolute;
+    right: 0;
+    margin-right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .navbar-area .lawel-header-left .logo {
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease-in 0.3s;
+    display: inline-block;
+  }
+  .navbar-area .lawel-header-left .logo img {
+    height: 30px;
+  }
+  .navbar-area.navbar-area-fixed .lawel-header-left .logo {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+  .nav-right-part ul li {
+    margin-left: 13px;
+  }
+}
+@media all and (max-width: 767px) {
+  .sidebar-area {
+    margin-top: 45px;
+  }
+  .featured-item img {
+    width: 100%;
+  }
+  .sidebar-area .widget .thumb img {
+    width: 100%;
+  }
+  .author-insta-bio .insta-bio-data,
+  .author-insta-bio .bio-data,
+  .widget_author_bio .insta-bio-data,
+  .widget_author_bio .bio-data {
+    width: 94%;
+  }
+}
+@media all and (max-width: 575px) {
+  .container,
+  .container-fluid,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  figure.style-2 .blockquote p {
+    font-size: 17px;
+  }
+  figure.style-2 .blockquote {
+    padding-left: 20px;
+  }
+  .single-post-footer .tag-inner {
+    margin-top: 15px;
+  }
+  .single-post-footer .tag-inner span:first-child a {
+    margin-left: 0;
+  }
+  .blog-post-item-wrap .banner-slider .owl-nav button {
+    height: 75px;
+  }
+  .navbar-area.navbar-area-fixed
+    .lawel-header-left
+    .nav-right-part
+    .social-area
+    li {
+    opacity: 0;
+    transition: all ease-in 0.3s;
+  }
+  .navbar-area.navbar-area-fixed
+    .lawel-header-left
+    .nav-right-part
+    .social-area
+    li:last-child {
+    display: block;
+    opacity: 1;
+  }
+  .search-popup .search-form {
+    min-width: 400px;
+  }
+}
+@media all and (max-width: 574px) {
+  .banner-inner {
+    padding: 100px 0;
+  }
+}
+@media all and (max-width: 425px) {
+  .author-insta-bio .insta-bio-data,
+  .author-insta-bio .bio-data,
+  .widget_author_bio .insta-bio-data,
+  .widget_author_bio .bio-data {
+    width: 92%;
+  }
+  .blog-post-item-wrap .post-content h4 {
+    font-size: 20px;
+  }
+  .blog-about-author {
+    display: block !important;
+  }
+  .blog-about-author .thumb {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .comments-inner-wrap .commentlist .comment .comment-author {
+    float: inherit;
+    margin-bottom: 20px;
+  }
+  .comments-inner-wrap .commentlist .comment .comment-body {
+    margin-left: 0;
+  }
+  .blog-post-item-wrap .post-content h2 {
+    font-size: 30px;
+  }
+}
+@media all and (max-width: 375px) {
+  .blog-post-item-wrap.style-2 {
+    margin: 0 20px;
+  }
+  .author-insta-bio .insta-bio-data,
+  .author-insta-bio .bio-data,
+  .widget_author_bio .insta-bio-data,
+  .widget_author_bio .bio-data {
+    width: 91%;
+  }
+  .post-pagination .other-post .media-body {
+    padding-left: 20px;
+  }
+  .post-pagination .other-post:last-child .media-body {
+    padding-right: 20px;
+  }
+  .banner-inner h2 {
+    font-size: 32px;
+  }
+  .search-popup .search-form {
+    min-width: 300px;
+  }
+}
+@media all and (max-width: 360px) {
+  .blog-post-item-wrap.style-2 {
+    margin: 0;
+    transform: translateY(-30px);
+  }
+  .author-insta-bio .insta-bio-data,
+  .author-insta-bio .bio-data,
+  .widget_author_bio .insta-bio-data,
+  .widget_author_bio .bio-data {
+    width: 89%;
+  }
+}
