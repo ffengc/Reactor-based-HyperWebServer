@@ -1,42 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>My Webpage</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: Arial, sans-serif;
-		}
-		h1 {
-			font-size: 36px;
-			text-align: center;
-			margin-top: 100px;
-		}
-		h2 {
-			font-size: 24px;
-			text-align: center;
-			margin-top: 20px;
-		}
-		p {
-			font-size: 16px;
-			margin-top: 20px;
-			margin-left: 20px;
-		}
-		#top-left-text {
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin: 20px;
-			font-size: 20px;
-			font-weight: bold;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yu's Resume Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      /* 青春活泼的背景颜色 */
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #4682b4;
+      /* 深蓝色背景 */
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      /* 文本左对齐 */
+    }
+
+    h2 {
+      color: #4682b4;
+      /* 与标题栏相同的蓝色 */
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4682b4;
+      /* 与标题栏相同的蓝色 */
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 装饰性元素 */
+    .decorative-element {
+      border-top: 1px dashed #000;
+      /* Black dashed line, 1px thickness */
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .divider {
+      background-color: #4682b4;
+      /* 蓝色分割线 */
+      height: 2px;
+      margin: 20px 0;
+    }
+  </style>
 </head>
+
 <body>
-	<div id="top-left-text">Request successful.</div>
-	<h1>~~~This is my Reactor-Server Project~~~</h1>
-	<h2>The backend of this web server is built based on the multiplexer actor mode</h2>
+  <header>
+    <h1>Let me introduce myself!</h1>
+    <p>Hi, I'm Yu. Here is my resume blog!</p>
+  </header>
+  <div class="container">
+    <h2>个人简介</h2>
+    <p>如果有很多困难，就一个一个解决</p>
+    <p>就读高校和专业：中山大学智能科学与技术</p>
+    <p>所在城市：广东 深圳</p>
+    <p>年级：21级本科生</p>
+    <p>联系邮箱：<a href="mailto:yufc779@gmail.com">yufc779@gmail.com</a></p>
+    <p>最喜欢的电影：火星救援</p>
+
+    <div class="decorative-element"></div>
+
+    <h2>代码仓库和博客主页</h2>
+    <ul>
+      <li><a href="https://github.com/Yufccode" target="_blank">GitHub🔗链接</a></li>
+      <li><a href="https://blog.csdn.net/Yu_Cblog?spm=1000.2115.3001.5343" target="_blank">CSDN-BLOG🔗链接</a></li>
+    </ul>
+
+    <div class "decorative-element"></div>
+
+    <h2>我的技能简介</h2>
+    <ul>
+      后端开发、
+      数据结构与算法、
+      Docker、
+      操作系统与计算机网络、
+      MySQL、
+      C++/C、
+      Protobuf、
+      Socket编程、
+      深度学习、
+      图像处理、
+      智能机器人技术、
+      ROS
+    </ul>
+
+    <div class="decorative-element"></div>
+
+    <h2>我的技术</h2>
+    <p><strong>编程语言技能</strong></p>
+    C/C++ 和 Python 编程，包括面向对象编程、深浅拷贝、动态内存管理、封装、继承、多态、模版等<br>
+    了解 C++11 智能指针和 RAII 思想<br>
+    熟练使用 C++ 迭代器<br>
+    掌握常见数据结构算法，如顺序表、链表、栈、队列、位图、布隆过滤器、二叉树、搜索二叉树、AVL、红黑树、B树、哈希表<br>
+    <p><strong>系统编程</strong></p>
+    熟练使用 Linux 开发环境，包括文件权限和用户管理 <br>
+    使用常见开发工具如 VSCode、SSH 和 Vim <br>
+    掌握线程控制，了解进程与线程的内核层面差异，实现简单线程池和进程池 <br>
+    <p><strong>人工智能编程技术</strong></p>
+    熟练并掌握 Python 编程，并能使用该语言进行机器学习，深度学习编程。 <br>
+    熟悉机器学习基本方法。理解并掌握线性回归、决策树、神经网络、SVM、集成学习、聚类等基本机器学习方法 <br>
+    掌握图像处理基本方法，掌握边缘计算，图像采集，图像增强(空域增强和频域增强)，图像恢复，图像分割等方法 <br>
+    掌握深度学习基本方法，掌握理解 Resnet，Densnet，YOLO 等深度学习模型 <br>
+    <p><strong>网络编程</strong></p>
+    掌握 HTTP/HTTPS 和 TCP/IP 协议，了解 NAT、MAC 帧协议、正反向代理 <br>
+    熟练使用套接字编程，了解阻塞和非阻塞接口，多路复用模型如 select/poll/epoll。 <br>
+    熟悉 Reactor 模式，手动实现基于 epoll 的 Reactor 服务器。 <br>
+    使用 protobuf 工具 <br>
+    <p><strong>数据库</strong></p>
+    掌握 MySQL 的基本 CRUD 操作, MVCC 多版本并发控制，事务和索引 <br>
+    <p><strong>编程工具</strong></p>
+    熟练使用 Docker, 包括镜像、网络、存储卷和容器编排 <br>
+    熟练使用 Git 工具 <br>
+
+    <div class="decorative-element"></div>
+
+    <h2>项目经历和科研经历</h2>
+    <p>(一) 💻基于 Reactor 模式的高性能 Web 服务器</p>
+    <p>项目介绍: 该项目基于 epoll 多路转接，实现了一个 Reactor 模式的 Web 服务器</p>
+    <p>相关技术: 多路转接、异步 IO、socket 编程</p>
+    <p>项目相关博客:</p>
+    <ul>
+      <li><a href="http://t.csdnimg.cn/ceMS3" target="_blank">🔗高效的IO和reactor模式</a></li>
+      <li><a href="http://t.csdnimg.cn/dw8CI" target="_blank">🔗多路转接高性能IO服务器｜select｜poll｜epoll｜模型详细实现</a></li>
+    </ul>
+    <p>项目代码仓库: <a href="https://github.com/Yufccode/Reactor-based-HyperWebServer"
+        target="_blank">🔗Reactor-based-HyperWebServer</a></p>
+    <br>
+    (二) 🤖基于 3d 多头注意力残差网络的帕金森氏症严重程度诊断解释模型 <br><br>
+    * 文章尚未被收录，正在投稿中<br><br>
+    * 通讯作者:陈语谦教授(原中山大学智能工程学院教授，现北京大学信息工程学院 AI for Science (AI4S) 主任) <br><br>
+    文章摘要（中文翻译）：<br><br>
+    帕金森病(PD)的严重程度评估对 PD 的治疗具有重要意义。然而，现有的方法要么基于先验知识存在局限性，要么是侵入 性方法。为了提出一个更广义的严重性评估模型，本文提出了一个可解释的 3D 多头注意力残差卷积网络。首先，我们设计
+    了一个基于 3D 注意力的卷积层来提取视频特征。其次，特征将被馈送到 LSTM 和残差骨干网络中，该网络可用于捕获视频 的上下文信息。最后，我们设计了一个特征压缩模块来压缩学习到的上下文特征。我们开发了一些可解释的实验来更好地解
+    释这个黑盒模型，以便它可以被推广。实验表明，我们的模型可以达到最先进的预测性能。所提出的轻量级但有效的模型有 望在未来基于 PD 视频的严重性评估研究中作为一个合适的端到端深度学习基线。
+    <div class="decorative-element"></div>
+
+    <!-- 在这里添加其他项目经历和科研经历的内容 -->
+  </div>
+  <div class="divider"></div>
 </body>
+
 </html>
