@@ -1,4 +1,7 @@
 # Apache和Nginx是什么？｜Nginx和Reactor是什么？｜网路IO的本质｜阻塞队列｜异步非阻塞IO
+
+**[English](./introduction.md)**
+
 ## 什么是IO，IO的本质是什么？ 
 
 要搞清楚这个问题，我们首先要了解5种最重要的IO模型！
