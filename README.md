@@ -1,91 +1,99 @@
 # 基于Reactor的高性能网络服务器
 
-一个基于多路复用Reactor模式的高性能web服务器，底层实现使用epoll模型。
+- **[简体中文](./README-CN.md)**
 
-我将继续更新这个项目，继续改进后端和前端的问题，并创建一个完整的项目。到目前为止，该项目已经完成了最基本的后端建设和简单的前端建设。
+- **[English](./README.md)**
 
-**其中，epoll在本项目中的基本原理和多路复用高性能IO的基本原理可以在我的其他repo中看到**
+A high-performance web server based on the multiplexed Reactor pattern, with the underlying implementation using the epoll model.
+
+I will continue to update this project, improve the backend and front-end issues, and create a complete project. So far, the project has completed the most basic backend construction and simple frontend construction.
+
+**Among them, the basic principles of epoll in this project and the basic principles of multiplexing high-performance IO can be seen in my other repo:**
 **https://github.com/Yufccode/Multiplexing-high-performance-IO-server**
 
-## 1. 实现效果
+## 0. Overall structure of Reactor server
+
+![](./figs/0.png)
+
+## 1. Implementation effect
 
 
-**后端效果**
+**Backend effects**
 
-![](./figs/1.png)
+![](./figs/1.png)Backend effects
 
-在后端可以在`stdout`中看到获取到的http请求报文，当然，我们也可以在日志文件中看到http报文。
+In the backend, we can see the obtained HTTP request message in 'stdout', and of course, we can also see the HTTP message in the log file.
 
-**前端效果**
+**Front end effects**
 
-为个人博客展示。
+Display for personal blog.
 
 ![](./figs/2.png)
 
-## 2. 运行方法
+## 2. operating method
 
-**环境**
+**Env**
 
 - Linux ALiCentos7 3.10.0-1160.88.1.el7.x86_64 #1 SMP Tue Mar 7 15:41:52 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 
 - gcc (GCC) 8.3.1 20190311 (Red Hat 8.3.1-3)
 
-克隆该项目。
+clone from github.
 
 ```bash
 git clone https://github.com/Yufccode/Reactor-based-HyperWebServer.git
 ```
 
-进入该项目的文件夹中。
+enter the dir.
 
 ```bash
 cd Reactor-based-HyperWebServer
 ```
 
-生成可执行。
+make.
 
 ```bash
 make clean;
 make;
 ```
 
-运行服务器。
+start the sever.
 
 ```
 ./WebServer
 ```
 
-注意：如果是云服务器运行本项目需要开放`8080`端口号，否则会因为防火墙而无法访问。
+Note: If running this project on a cloud server, the '8080' port number needs to be opened, otherwise it may be inaccessible due to the firewall.
 
-打开浏览器，访问服务端。
+Open the browser and access the server.
 
-一、本机访问
+**Local Access**
 
-输入url。
+enter the url。
 
 ```url
 127.0.0.1:8080
 ```
 
-二、云服务器访问。
+**other machines access**
 
-输入url。
+enter the url.
 
 ```url
-(云服务器ip):8080 # xxx.xxx.xxx.xxx:8080
+(server ip):8080 # xxx.xxx.xxx.xxx:8080
 ```
 
-## 3. 文件结构
+## 3. File Structure
 
 ```bash
 yufc@ALiCentos7:~/Src/Bit-Project/WebServer-reactor$ tree .
 .
-├── CleanLogs.sh # 清除所有日志文件内容脚本
+├── CleanLogs.sh # Clear all log file content scripts
 ├── Logs
-│   ├── Requests.log # 收到HTTP报文保存的日志文件
-│   └── WebServer.log # 服务器打印的日志保存文件
+│   ├── Requests.log # Received the log file saved in the HTTP message
+│   └── WebServer.log # Server printed log save file
 ├── makefile
-├── Reactor # Reactor模式底层服务器文件
+├── Reactor # Reactor pattern underlying server files
 │   ├── Epoll.hpp
 │   ├── Log.hpp
 │   ├── Protocol.hpp
@@ -94,17 +102,17 @@ yufc@ALiCentos7:~/Src/Bit-Project/WebServer-reactor$ tree .
 ├── README.md
 ├── start-main.cc
 ├── text
-│   └── ziliao.txt # 资料
+│   └── ziliao.txt # some Reactor pattern underlying server files
 ├── tools
-│   ├── main.cc-backup # main函数备份
-│   └── ulity.hpp # 工具相关接口头文件
-├── WebServer # 可执行程序
-├── WebServer.hpp # Web服务器头文件
-├── wwwroot # 前端根目录
+│   ├── main.cc-backup # main function backup
+│   └── ulity.hpp # Tool related interface header files
+├── WebServer # executable program
+├── WebServer.hpp # Web server header file
+├── wwwroot # Front end root directory
 │   ├── error
 │   │   └── 404.html
 │   └── index.html
-└── wwwroot-backup # 前端根目录的一些备份
+└── wwwroot-backup # Front end root directory backup
     ├── my_blog_root
     │   └── index.html
     └── wwwroot
@@ -118,13 +126,13 @@ yufc@ALiCentos7:~/Src/Bit-Project/WebServer-reactor$
 
 ## 4. 项目原理简介
 
-本项目基于Socker编程，采用epoll形式的多路转接，搭建了一个Reactor模式的网络服务器。
+This project is based on Docker programming and uses epoll form of multiplexing to build a Reactor mode network server.
 
-其中`WebServer.hpp`为底层`Reactor`服务器的封装。
+Among them, 'WebServer. hpp' is the encapsulation of the underlying 'Reactor' server.
 
-本项目其实是Nginx服务器的核心所在。
+This project is actually the core of Nginx server.
 
-关于Nginx等实现原理，异步IO的原理，多路转接的原理，可以见以下链接。
+For the implementation principles of Nginx, asynchronous IO, and multiplexing, please refer to the following links.
 
 - **[中文-introduction](./introduction-cn.md)**
 
