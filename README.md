@@ -1,4 +1,4 @@
-# 基于Reactor的高性能网络服务器
+# High-performance web server based on Reactor
 
 - **[简体中文](./README-CN.md)**
 
