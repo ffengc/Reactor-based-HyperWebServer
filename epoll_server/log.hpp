@@ -1,44 +1,44 @@
 
 
-#pragma once
+#ifndef __YUFC_LOG__
+#define __YUFC_LOG__
 
 // 日志是有日志级别的
 // 不同的级别代表不同的响应方式
 #define DEBUG 0
-#define NORMAL 1  // 正常的
+#define NORMAL 1 // 正常的
 #define WARNING 2 // 警告
-#define ERROR 3   // 错误
-#define FATAL 4   // 致命的
+#define ERROR 3 // 错误
+#define FATAL 4 // 致命的
 
-#include <string>
+#include <assert.h>
+#include <chrono>
 #include <iostream>
 #include <stdarg.h>
 #include <stdio.h>
+#include <string>
 #include <time.h>
-#include <chrono>
-#include <assert.h>
 
 // 完整的日志功能
 // 至少：日志等级、时间、内容、支持用户自定义
 
-const char *gLevelMap[] = {
+const char* gLevelMap[] = {
     "DEBUG",
     "NORMAL",
     "WARNING",
     "ERROR",
-    "FATAL"};
+    "FATAL"
+};
 
-#define __NORMAL_LOG__ "./Logs/WebServer.log"
-#define __REQUEST_LOG__ "./Logs/Requests.log"
+#define __NORMAL_LOG__ "./WebServer.log"
+#define __REQUEST_LOG__ "./Requests.log"
 #define __LOGBEGIN__ 1
 #define __LOGEND__ 0
 
-void InitLogFile(int option)
-{
-    FILE *fp = fopen(__NORMAL_LOG__, "a");
-    FILE *fp_r = fopen(__REQUEST_LOG__, "a");
-    if (option == __LOGBEGIN__)
-    {
+void InitLogFile(int option) {
+    FILE* fp = fopen(__NORMAL_LOG__, "a");
+    FILE* fp_r = fopen(__REQUEST_LOG__, "a");
+    if (option == __LOGBEGIN__) {
         auto start_time = std::chrono::system_clock::now();
         std::time_t start_time_t = std::chrono::system_clock::to_time_t(start_time);
         std::string prompt = "Process started at: ";
@@ -46,13 +46,10 @@ void InitLogFile(int option)
         std::string logLine = prompt + timeLine;
         fprintf(fp, "%s\n", logLine.c_str());
         fprintf(fp_r, "%s\n", logLine.c_str());
-    }
-    else if (option == __LOGEND__)
-    {
+    } else if (option == __LOGEND__) {
         fprintf(fp, "\n\n");
         fprintf(fp_r, "\n\n");
-    }
-    else
+    } else
         assert(false);
     fflush(fp);
     fflush(fp_r);
@@ -60,8 +57,7 @@ void InitLogFile(int option)
     fclose(fp_r);
 }
 
-void logMessage(int level, const char *format, ...)
-{
+void logMessage(int level, const char* format, ...) {
 #ifdef __DEBUG_SHOW
     if (level == DEBUG)
         return;
@@ -89,7 +85,7 @@ void logMessage(int level, const char *format, ...)
 
 #endif
 
-    FILE *fp = fopen(__NORMAL_LOG__, "a");
+    FILE* fp = fopen(__NORMAL_LOG__, "a");
     fprintf(stdout, "%s%s\n", stdBuffer, logBuffer);
     fflush(stdout);
     fprintf(fp, "%s%s\n", stdBuffer, logBuffer);
@@ -97,10 +93,11 @@ void logMessage(int level, const char *format, ...)
     fclose(fp);
 }
 
-void logRequest(const char *request)
-{
-    FILE *fp = fopen(__REQUEST_LOG__, "a");
+void logRequest(const char* request) {
+    FILE* fp = fopen(__REQUEST_LOG__, "a");
     fprintf(fp, "%s", request);
     fflush(fp);
     fclose(fp);
 }
+
+#endif
