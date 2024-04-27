@@ -1,9 +1,9 @@
 
-#include "tcp_server.hpp"
+#include "web_server.hpp"
 #include <memory>
 
 int main() {
-    std::unique_ptr<yufc::tcp_server> svr(new yufc::tcp_server());
-    svr->dispather();
+    std::unique_ptr<yufc::web_server> svr(new yufc::web_server());
+    svr->start();
     return 0;
 }

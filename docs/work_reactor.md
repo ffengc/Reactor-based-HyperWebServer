@@ -15,6 +15,15 @@
   - [已经拿到就绪的事件了，如何处理](#已经拿到就绪的事件了如何处理)
     - [注意细节](#注意细节)
   - [进行初步的测试](#进行初步的测试)
+  - [完善\_\_accepter函数](#完善__accepter函数)
+  - [一共四个回调](#一共四个回调)
+  - [此时的\_\_accepter还有问题吗](#此时的__accepter还有问题吗)
+  - [编写\_\_recver](#编写__recver)
+  - [解耦上层业务](#解耦上层业务)
+  - [如何响应](#如何响应)
+    - [完成发送的逻辑](#完成发送的逻辑)
+    - [触发发送](#触发发送)
+  - [\_\_excepter处理](#__excepter处理)
 
 
 这一部分不多说，直接进入代码编写，后面有需要解释的特性，再解释。
@@ -395,3 +404,298 @@ public:
 
 ## 进行初步的测试
 
+略
+
+## 完善__accepter函数
+
+tcp_server.hpp
+```cpp
+    void __accepter(connection* conn) {
+        // logMessage(DEBUG, "accepter is called");
+        // 此时的listensock一定已经就绪了！
+        // v1
+        std::string client_ip;
+        uint16_t client_port;
+        int accept_errno = -1;
+        int sock = Sock::Accept(conn->__sock, &client_ip, &client_port, &accept_errno);
+        // accept回来的sock就是正常io的sock
+        if (sock < 0) { }
+        // 将sock托管给poll和tcpserver
+        __add_connection(sock, );
+    }
+```
+
+accept回来得到的sock，就是普通的io套接字，是要交给tcpserver托管的，要交给poll的。
+所以，读回调，写回调，异常回调，我们在代码中可以先写好。
+
+## 一共四个回调
+
+**所以可以总结了，一共有四个回调！**
+
+tcp_server.hpp
+```cpp
+    void __accepter(connection* conn);
+    void __recver(connection* conn);
+    void __sender(connection* conn);
+    void __excepter(connection* conn);
+```
+
+__accepter是给监听套接字用的！
+后面三个是给普通的io套接字用的！
+
+所以：
+```cpp
+    // 将sock托管给poll和tcpserver
+    __add_connection(sock, std::bind(&tcp_server::__recver, this, std::placeholders::_1),
+        std::bind(&tcp_server::__sender, this, std::placeholders::_1),
+        std::bind(&tcp_server::__excepter, this, std::placeholders::_1));
+```
+
+## 此时的__accepter还有问题吗
+
+
+```cpp
+    void __accepter(connection* conn) {
+        // logMessage(DEBUG, "accepter is called");
+        // 此时的listensock一定已经就绪了！
+        // v1
+        std::string client_ip;
+        uint16_t client_port;
+        int accept_errno = -1;
+        int sock = Sock::Accept(conn->__sock, &client_ip, &client_port, &accept_errno);
+        // accept回来的sock就是正常io的sock
+        if (sock < 0) { }
+        // 将sock托管给poll和tcpserver
+        __add_connection(sock, std::bind(&tcp_server::__recver, this, std::placeholders::_1),
+            std::bind(&tcp_server::__sender, this, std::placeholders::_1),
+            std::bind(&tcp_server::__excepter, this, std::placeholders::_1));
+    }
+```
+
+注意，所有文件描述符都是ET模式，所以：你怎么保证，底层只有一个链接就绪呢？
+
+所以需要while，把这些东西包起来！
+
+```cpp
+    void __accepter(connection* conn) {
+        // logMessage(DEBUG, "accepter is called");
+        // 此时的listensock一定已经就绪了！
+        // v1
+        while (true) {
+            std::string client_ip;
+            uint16_t client_port;
+            int accept_errno = 0;
+            int sock = Sock::Accept(conn->__sock, &client_ip, &client_port, &accept_errno);
+            // accept回来的sock就是正常io的sock
+            if (sock < 0) { }
+            // 将sock托管给poll和tcpserver
+            __add_connection(sock, std::bind(&tcp_server::__recver, this, std::placeholders::_1),
+                std::bind(&tcp_server::__sender, this, std::placeholders::_1),
+                std::bind(&tcp_server::__excepter, this, std::placeholders::_1));
+        }
+    }
+```
+
+因为sock已经被设置成非阻塞了，所以就算一直循环到没有数据，也不会阻塞。
+
+此时，问题来了：如何区分，这个accept的推出是因为读取出错了，还是因为底层已经读完了（没有数据了）呢？所以要加以区分。
+
+![](./assets/8.png)
+
+所以sock.hpp的accept可以多加上一个参数，表示errno这个码，我们就能在上层区分了
+
+```cpp
+static int Accept(int listensock, std::string* ip, uint16_t* port, int* accept_errno);
+```
+
+所以这种形式才是对的
+tcp_server.hpp
+```cpp
+    void __accepter(connection* conn) {
+        // logMessage(DEBUG, "accepter is called");
+        // 此时的listensock一定已经就绪了！
+        // v1
+        while (true) {
+            std::string client_ip;
+            uint16_t client_port;
+            int accept_errno = 0;
+            int sock = Sock::Accept(conn->__sock, &client_ip, &client_port, &accept_errno);
+            // accept回来的sock就是正常io的sock
+            if (sock < 0) {
+                if (accept_errno == EAGAIN || accept_errno == EWOULDBLOCK) // 并不是出错了，是因为没链接了
+                    break;
+                else if (accept_errno == EINTR)
+                    continue; // 概率非常低
+                else {
+                    logMessage(WARNING, "accept error, %d : %s", accept_errno, strerror(accept_errno));
+                    break;
+                }
+            }
+            // 将sock托管给poll和tcpserver
+            __add_connection(sock, std::bind(&tcp_server::__recver, this, std::placeholders::_1),
+                std::bind(&tcp_server::__sender, this, std::placeholders::_1),
+                std::bind(&tcp_server::__excepter, this, std::placeholders::_1));
+        }
+    }
+    void __recver(connection* conn) {
+        logMessage(DEBUG, "__recver called");
+    }
+    void __sender(connection* conn) {
+        logMessage(DEBUG, "__sender called");
+    }
+    void __excepter(connection* conn) {
+        logMessage(DEBUG, "__excepter called");
+    }
+```
+
+此时进行一个测试
+
+![](./assets/9.png)
+
+发现__recver的回调成功了！
+
+## 编写__recver
+
+```cpp
+    void __recver(connection* conn) {
+        // 非阻塞读取，所以要循环读取
+        // v1. 先面向字节流
+        const int num = 1024;
+        while (true) {
+            char buffer[num];
+            ssize_t n = recv(conn->__sock, buffer, sizeof(buffer) - 1, 0);
+            if (n < 0) {
+                if (errno == EAGAIN || errno == EWOULDBLOCK) // 读取完毕了(正常的break)
+                    break;
+                else if (errno == EINTR)
+                    continue;
+                else {
+                    logMessage(ERROR, "recv error, %d:%s", errno, strerror(errno));
+                    conn->__except_callback(conn); // 异常了，调用异常回调
+                    break;
+                }
+            }
+            // 读取成功了
+            buffer[n] = 0;
+            conn->__in_buffer += buffer; // 放到缓冲区里面就行了
+        } // end while
+        logMessage(DEBUG, "recv done, the [(%d)]inbuffer: %s", conn->__sock, conn->__in_buffer.c_str());
+    }
+```
+和accept其实差不太多，反正读取要while读取，因为是ET非阻塞，要读完。
+
+读取进来的数据，直接丢到缓冲区里面去！如果测试，我们就能看到缓冲区是叠加的！
+
+![](./assets/10.png)
+
+
+## 解耦上层业务
+
+现在我们把报文都读进来了，然后当然我们要分割这些报文，问题是，分割好之后干什么？
+
+如果是web服务器，分割好的都是一个一个http报文，所以我们应该分析http报文，作出对应的回应。
+
+如果是其他服务器，业务逻辑就不同了。因为我们要解耦合，把上层业务逻辑分割出去。
+
+```cpp
+using business_func_t = std::function<void(connection*, std::string request)>; // 上层的业务逻辑
+```
+
+分割出一个一个报文之后，当成放到request里面，传给business_func_t，让他去对这些报文做处理。
+
+所以这个，交给上层处理！上层的代码 web_server.hpp 我就不给大家讲解了，可以直接看代码。
+
+## 如何响应
+
+当响应构建好之后，要发给客户端，也就是要调用 __sender 了。那么怎么让服务器发送呢？
+
+我们构建ET模式的时候，只关心了读事件，写事件压根儿没被打开，所以现在是发不了的！那怎么发?
+
+**两个步骤：**
+1. 需要完整的发送的逻辑
+2. 要触发发送这个动作
+
+
+### 完成发送的逻辑
+
+```cpp
+    void __sender(connection* conn) {
+        while (true) {
+            ssize_t n = send(conn->__sock, conn->__out_buffer.c_str(), conn->__out_buffer.size(), 0);
+            if (n > 0) {
+                conn->__out_buffer.erase(0, n);
+                if (conn->__out_buffer.empty())
+                    break; // 发完了
+            } else {
+                if (errno == EAGAIN || errno == EWOULDBLOCK)
+                    break;
+                else if (errno == EINTR)
+                    continue;
+                else {
+                    logMessage(ERROR, "send error, %d:%s", errno, strerror(errno));
+                    conn->__except_callback(conn);
+                    break;
+                }
+            }
+        }
+        // 走到这里，要么就是发完，要么就是发送条件不满足，下次发送
+    }
+```
+
+和前面一样，不重复解释。
+
+### 触发发送
+
+一旦开启EPOLLOUT，epoll回立刻自动触发一次事件就绪，如果后续保持发送的开启，epoll会一直发。
+
+所以需要这么一个函数
+
+```cpp
+    void enable_read_write(bool readable, bool writable) {
+    }
+```
+
+所以此时：__sender里面要补充。
+
+```cpp
+        // 走到这里，要么就是发完，要么就是发送条件不满足，下次发送
+        if (conn->__out_buffer.empty())
+            enable_read_write(conn, true, false);
+```
+
+如果此次调用__sender已经把数据发完了，就要关闭写事件！`enable_read_write(conn, true, false);`。
+
+谁打开的写事件？业务逻辑那里触发！
+
+web_server.hpp
+```cpp
+    static void Respones(yufc::connection* conn, std::string& request) {
+        // 处理http报文
+        std::string target = web_server::analyze_http_mesg(request);
+        // 2. 构建一个Http构建一个响应
+        std::string HttpResponse = web_server::build_http_response_mesg(target);
+        // 3. 放到conn到发送缓冲区中
+        conn->__out_buffer += HttpResponse;
+        // 4. 调用send
+        conn->__tsvr->enable_read_write(conn, true, true);
+    }
+```
+
+## __excepter处理
+
+```cpp
+    void __excepter(connection* conn) {
+        if (!is_sock_in_map(conn->__sock))
+            return;
+        // 1. 从epoll中移除
+        if (!__poll.delete_from_epoll(conn->__sock))
+            assert(false);
+        // 2. 从map中移除
+        __connection_map.erase(conn->__sock);
+        // 3. close sock
+        close(conn->__sock);
+        // 4. delete conn
+        delete conn;
+    }
+```
+至此，服务器全部搞定！

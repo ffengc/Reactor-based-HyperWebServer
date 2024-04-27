@@ -32,8 +32,19 @@ public:
         int n = epoll_ctl(__epoll_fd, EPOLL_CTL_ADD, sock, &ev);
         return n == 0;
     }
+    bool delete_from_epoll(int sock) {
+        return epoll_ctl(__epoll_fd, EPOLL_CTL_DEL, sock, nullptr) == 0;
+    }
     int wait_poll(struct epoll_event revs[], int num) {
         return epoll_wait(__epoll_fd, revs, num, __timeout);
+    }
+    bool control_poll(int sock, uint32_t events) {
+        events |= EPOLLET; // 无论是谁，一律设置为ET模式
+        struct epoll_event ev;
+        ev.events = events;
+        ev.data.fd = sock;
+        int n = epoll_ctl(__epoll_fd, EPOLL_CTL_MOD, sock, &ev);
+        return n == 0;
     }
 
 public:
