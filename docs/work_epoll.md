@@ -56,7 +56,7 @@ cite: https://blog.csdn.net/jgm20475/article/details/81083529
 - 所以本质上：epoll是一个生产者消费者模型！
 - 如果底层没有就绪事件呢？我们的上层应该怎么办？阻塞等待！（可以选择的！所以epoll_wait接口为什么有一个timeout参数，如果我选择不等，就直接返回->非阻塞了）
 
-![](./assets/1.png)
+![](../assets/1.png)
 
 ## 封装epoll_server
 
@@ -147,7 +147,7 @@ RETURN VALUE
     }
 ```
 
-![](./assets/2.png)
+![](../assets/2.png)
 
 符合预期，因为文件描述符0，1，2已经在用了。
 
@@ -176,7 +176,7 @@ RETURN VALUE
 
 认识一个接口。
 
-![](./assets/3.png)
+![](../assets/3.png)
 
 > **参数：一句话搞定：让epfd这个epoll模型管理fd这个文件描述符，当fd中有event事件发生的时候，让epfd帮这个fd做op这个动作！**
 
@@ -268,7 +268,7 @@ epoll_server.hpp
 
 ## 进行一次测试
 
-![](./assets/4.png)
+![](../assets/4.png)
 
 因为我们一直没处理这个继续的套接字，所以一直打印！
 
@@ -334,7 +334,7 @@ Accepter这样写
 
 测试一下。
 
-![](./assets/5.png)
+![](../assets/5.png)
 
 
 Recver这样写
@@ -384,7 +384,7 @@ int main() {
 
 ## epoll服务器最终测试
 
-![](./assets/6.png)
+![](../assets/6.png)
 
 epoll服务器回调了方法。
 
