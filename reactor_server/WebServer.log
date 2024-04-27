@@ -1,0 +1,493 @@
+[DEBUG] [1714112436] recv done, the inbuffer: nihao
+nihao
+nihao
+wohao
+nihaoa
+ajsdkfja
+ÿôÿý
+[NORMAL] [1714121424] create socket success, sock: 3
+[NORMAL] [1714121424] init TcpServer Success
+[NORMAL] [1714121445] link success, serviceSock: 5 | 10.211.55.2 : -311038514
+[DEBUG] [1714121445] accept client 10.211.55.2:60831 success, add to epoll and server success
+[DEBUG] [1714121445] recv done, the inbuffer: GET / HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121445] link success, serviceSock: 6 | 10.211.55.2 : -311038514
+[DEBUG] [1714121445] accept client 10.211.55.2:60832 success, add to epoll and server success
+[DEBUG] [1714121445] recv done, the inbuffer: GET /red.css HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/css,*/*;q=0.1
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121445] link success, serviceSock: 7 | 10.211.55.2 : -311038514
+[DEBUG] [1714121445] accept client 10.211.55.2:60833 success, add to epoll and server success
+[NORMAL] [1714121445] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121445] accept client 10.211.55.2:60834 success, add to epoll and server success
+[DEBUG] [1714121445] recv done, the inbuffer: GET /assets/img/bio.jpg HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121445] recv done, the inbuffer: GET /assets/img/gmail.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121445] link success, serviceSock: 9 | 10.211.55.2 : -311038514
+[DEBUG] [1714121445] accept client 10.211.55.2:60835 success, add to epoll and server success
+[NORMAL] [1714121445] link success, serviceSock: 10 | 10.211.55.2 : -311038514
+[DEBUG] [1714121445] accept client 10.211.55.2:60836 success, add to epoll and server success
+[DEBUG] [1714121445] recv done, the inbuffer: GET /assets/img/github.jpeg HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121445] recv done, the inbuffer: GET /assets/img/csdn-logo.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121445] client 8 quit, server close 8
+[DEBUG] [1714121445] __excepter called
+[DEBUG] [1714121445] recv done, the inbuffer: »Ý°ª
+
+[NORMAL] [1714121445] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121445] accept client 10.211.55.2:60837 success, add to epoll and server success
+[ERROR] [1714121445] recv error, 104:Connection reset by peer
+[DEBUG] [1714121445] __excepter called
+[DEBUG] [1714121445] recv done, the inbuffer: Wß°ª
+
+[DEBUG] [1714121445] recv done, the inbuffer: GET /assets/img/lb-model.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[ERROR] [1714121445] recv error, 104:Connection reset by peer
+[DEBUG] [1714121445] __excepter called
+[DEBUG] [1714121445] recv done, the inbuffer: Wß°ª
+
+[NORMAL] [1714121460] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121460] accept client 10.211.55.2:60887 success, add to epoll and server success
+[NORMAL] [1714121460] link success, serviceSock: 10 | 10.211.55.2 : -311038514
+[DEBUG] [1714121460] accept client 10.211.55.2:60888 success, add to epoll and server success
+[DEBUG] [1714121460] recv done, the inbuffer: GET /assets/img/project-3.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121460] recv done, the inbuffer: GET /assets/img/reactor-server.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[ERROR] [1714121460] recv error, 104:Connection reset by peer
+[DEBUG] [1714121460] __excepter called
+[DEBUG] [1714121460] recv done, the inbuffer: Wß°ª
+
+[NORMAL] [1714121460] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121460] accept client 10.211.55.2:60889 success, add to epoll and server success
+[ERROR] [1714121460] recv error, 104:Connection reset by peer
+[DEBUG] [1714121460] __excepter called
+[DEBUG] [1714121460] recv done, the inbuffer: ø E§¡ª
+[DEBUG] [1714121460] recv done, the inbuffer: GET /assets/img/coming.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[ERROR] [1714121460] recv error, 104:Connection reset by peer
+[DEBUG] [1714121460] __excepter called
+[DEBUG] [1714121460] recv done, the inbuffer: ø E§¡ª
+[DEBUG] [1714121504] client 9 quit, server close 9
+[DEBUG] [1714121504] __excepter called
+[DEBUG] [1714121504] recv done, the inbuffer: \E§¡ª
+[DEBUG] [1714121504] client 7 quit, server close 7
+[DEBUG] [1714121504] __excepter called
+[DEBUG] [1714121504] recv done, the inbuffer: ;dk§¡ª
+[DEBUG] [1714121504] client 6 quit, server close 6
+[DEBUG] [1714121504] __excepter called
+[DEBUG] [1714121504] recv done, the inbuffer: 
+|E§¡ª
+[DEBUG] [1714121504] client 5 quit, server close 5
+[DEBUG] [1714121504] __excepter called
+[DEBUG] [1714121504] recv done, the inbuffer: ºÝ°ª
+
+[NORMAL] [1714121506] link success, serviceSock: 5 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61015 success, add to epoll and server success
+[DEBUG] [1714121506] recv done, the inbuffer: GET / HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121506] link success, serviceSock: 6 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61016 success, add to epoll and server success
+[DEBUG] [1714121506] recv done, the inbuffer: GET /red.css HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/css,*/*;q=0.1
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121506] link success, serviceSock: 7 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61019 success, add to epoll and server success
+[NORMAL] [1714121506] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61020 success, add to epoll and server success
+[NORMAL] [1714121506] link success, serviceSock: 9 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61021 success, add to epoll and server success
+[NORMAL] [1714121506] link success, serviceSock: 10 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61022 success, add to epoll and server success
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/bio.jpg HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/gmail.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/github.jpeg HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/csdn-logo.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121506] client 8 quit, server close 8
+[DEBUG] [1714121506] __excepter called
+[DEBUG] [1714121506] recv done, the inbuffer: »Ý°ª
+
+[DEBUG] [1714121506] client 10 quit, server close 10
+[DEBUG] [1714121506] __excepter called
+[DEBUG] [1714121506] recv done, the inbuffer: ø E§¡ª
+[NORMAL] [1714121506] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61023 success, add to epoll and server success
+[NORMAL] [1714121506] link success, serviceSock: 10 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61024 success, add to epoll and server success
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/lb-model.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/project-3.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121506] client 8 quit, server close 8
+[DEBUG] [1714121506] __excepter called
+[DEBUG] [1714121506] recv done, the inbuffer: Xß°ª
+
+[ERROR] [1714121506] recv error, 104:Connection reset by peer
+[DEBUG] [1714121506] __excepter called
+[DEBUG] [1714121506] recv done, the inbuffer: ÷^E§¡ª
+[NORMAL] [1714121506] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61025 success, add to epoll and server success
+[NORMAL] [1714121506] link success, serviceSock: 10 | 10.211.55.2 : -311038514
+[DEBUG] [1714121506] accept client 10.211.55.2:61026 success, add to epoll and server success
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/reactor-server.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121506] recv done, the inbuffer: GET /assets/img/coming.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[ERROR] [1714121506] recv error, 104:Connection reset by peer
+[DEBUG] [1714121506] __excepter called
+[DEBUG] [1714121506] recv done, the inbuffer: Wß°ª
+
+[ERROR] [1714121506] recv error, 104:Connection reset by peer
+[DEBUG] [1714121506] __excepter called
+[DEBUG] [1714121506] recv done, the inbuffer: ø E§¡ª
+[NORMAL] [1714121551] link success, serviceSock: 8 | 10.211.55.2 : -311038514
+[DEBUG] [1714121551] accept client 10.211.55.2:61152 success, add to epoll and server success
+[DEBUG] [1714121551] recv done, the inbuffer: GET / HTTP/1.1
+Host: 10.211.55.4:8080
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15
+Accept-Language: en-US,en;q=0.9
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+[NORMAL] [1714121551] link success, serviceSock: 10 | 10.211.55.2 : -311038514
+[DEBUG] [1714121551] accept client 10.211.55.2:61153 success, add to epoll and server success
+[NORMAL] [1714121551] link success, serviceSock: 11 | 10.211.55.2 : -311038514
+[DEBUG] [1714121551] accept client 10.211.55.2:61154 success, add to epoll and server success
+[DEBUG] [1714121551] recv done, the inbuffer: GET /red.css HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15
+Accept-Language: en-US,en;q=0.9
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+
+
+[DEBUG] [1714121551] recv done, the inbuffer: GET /assets/img/bio.jpg HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Accept: image/webp,image/avif,image/jxl,image/heic,image/heic-sequence,video/*;q=0.8,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15
+Accept-Language: en-US,en;q=0.9
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+
+
+[DEBUG] [1714121569] client 6 quit, server close 6
+[DEBUG] [1714121569] __excepter called
+[DEBUG] [1714121569] recv done, the inbuffer: ºÝ°ª
+
+[DEBUG] [1714121569] client 7 quit, server close 7
+[DEBUG] [1714121569] __excepter called
+[DEBUG] [1714121569] recv done, the inbuffer: ;dk§¡ª
+[DEBUG] [1714121569] client 9 quit, server close 9
+[DEBUG] [1714121569] __excepter called
+[DEBUG] [1714121569] recv done, the inbuffer: \E§¡ª
+[DEBUG] [1714121569] client 5 quit, server close 5
+[DEBUG] [1714121569] __excepter called
+[DEBUG] [1714121569] recv done, the inbuffer: ØXE§¡ª
+[NORMAL] [1714121580] link success, serviceSock: 5 | 10.211.55.2 : -311038514
+[DEBUG] [1714121580] accept client 10.211.55.2:61229 success, add to epoll and server success
+[DEBUG] [1714121580] recv done, the inbuffer: GET /assets/img/gmail.png HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Accept: image/webp,image/avif,image/jxl,image/heic,image/heic-sequence,video/*;q=0.8,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15
+Accept-Language: en-US,en;q=0.9
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+
+
+[DEBUG] [1714121580] client 8 quit, server close 8
+[DEBUG] [1714121580] __excepter called
+[DEBUG] [1714121580] recv done, the inbuffer: Xß°ª
+
+[DEBUG] [1714121580] client 5 quit, server close 5
+[DEBUG] [1714121580] __excepter called
+[DEBUG] [1714121580] recv done, the inbuffer: Xß°ª
+
+[DEBUG] [1714121580] client 10 quit, server close 10
+[DEBUG] [1714121580] __excepter called
+[DEBUG] [1714121580] recv done, the inbuffer: šuk§¡ª
+[DEBUG] [1714121580] client 11 quit, server close 11
+[DEBUG] [1714121580] __excepter called
+[DEBUG] [1714121580] recv done, the inbuffer: ?QE§¡ª
+[NORMAL] [1714121580] link success, serviceSock: 5 | 10.211.55.2 : -311038514
+[DEBUG] [1714121580] accept client 10.211.55.2:61232 success, add to epoll and server success
+[DEBUG] [1714121580] recv done, the inbuffer: GET / HTTP/1.1
+Host: 10.211.55.4:8080
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15
+Accept-Language: en-US,en;q=0.9
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+
+[NORMAL] [1714121580] link success, serviceSock: 6 | 10.211.55.2 : -311038514
+[DEBUG] [1714121580] accept client 10.211.55.2:61233 success, add to epoll and server success
+[NORMAL] [1714121580] link success, serviceSock: 7 | 10.211.55.2 : -311038514
+[DEBUG] [1714121580] accept client 10.211.55.2:61234 success, add to epoll and server success
+[DEBUG] [1714121580] recv done, the inbuffer: GET /red.css HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Accept: text/css,*/*;q=0.1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15
+Accept-Language: en-US,en;q=0.9
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+
+
+[DEBUG] [1714121580] recv done, the inbuffer: GET /assets/img/bio.jpg HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Accept: image/webp,image/avif,image/jxl,image/heic,image/heic-sequence,video/*;q=0.8,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15
+Accept-Language: en-US,en;q=0.9
+Referer: http://10.211.55.4:8080/
+Accept-Encoding: gzip, deflate
+
+
+[DEBUG] [1714121584] client 7 quit, server close 7
+[DEBUG] [1714121584] __excepter called
+[DEBUG] [1714121584] recv done, the inbuffer: ?QE§¡ª
+[DEBUG] [1714121584] client 6 quit, server close 6
+[DEBUG] [1714121584] __excepter called
+[DEBUG] [1714121584] recv done, the inbuffer: šuk§¡ª
+[DEBUG] [1714121584] client 5 quit, server close 5
+[DEBUG] [1714121584] __excepter called
+[DEBUG] [1714121584] recv done, the inbuffer: Xß°ª
+
+[NORMAL] [1714121708] link success, serviceSock: 5 | 10.211.55.2 : -311038514
+[DEBUG] [1714121708] accept client 10.211.55.2:61656 success, add to epoll and server success
+[DEBUG] [1714121708] recv done, the inbuffer: GET / HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121708] link success, serviceSock: 6 | 10.211.55.2 : -311038514
+[DEBUG] [1714121708] accept client 10.211.55.2:61657 success, add to epoll and server success
+[DEBUG] [1714121712] client 5 quit, server close 5
+[DEBUG] [1714121712] __excepter called
+[DEBUG] [1714121712] recv done, the inbuffer: ºÝ°ª
+
+[DEBUG] [1714121712] recv done, the inbuffer: GET / HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121712] link success, serviceSock: 5 | 10.211.55.2 : -311038514
+[DEBUG] [1714121712] accept client 10.211.55.2:61673 success, add to epoll and server success
+[DEBUG] [1714121713] client 6 quit, server close 6
+[DEBUG] [1714121713] __excepter called
+[DEBUG] [1714121713] recv done, the inbuffer: ØXE§¡ª
+[DEBUG] [1714121725] recv done, the inbuffer: GET /a HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[NORMAL] [1714121725] link success, serviceSock: 6 | 10.211.55.2 : -311038514
+[DEBUG] [1714121725] accept client 10.211.55.2:61711 success, add to epoll and server success
+[DEBUG] [1714121727] recv done, the inbuffer: GET / HTTP/1.1
+Host: 10.211.55.4:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://10.211.55.4:8080/a
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+
+[DEBUG] [1714121727] client 5 quit, server close 5
+[DEBUG] [1714121727] __excepter called
+[DEBUG] [1714121727] recv done, the inbuffer: ºÝ°ª
+
+[DEBUG] [1714121739] client 6 quit, server close 6
+[DEBUG] [1714121739] __excepter called
+[DEBUG] [1714121739] recv done, the inbuffer: ¿Ý°ª
+

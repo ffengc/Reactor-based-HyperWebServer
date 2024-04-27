@@ -1,139 +1,63 @@
 # High-performance web server based on Reactor
 
 - **[简体中文](./README-CN.md)**
-
 - **[English](./README.md)**
 
-A high-performance web server based on the multiplexed Reactor pattern, with the underlying implementation using the epoll model.
+***
 
-I will continue to update this project, improve the backend and front-end issues, and create a complete project. So far, the project has completed the most basic backend construction and simple frontend construction.
+- [High-performance web server based on Reactor](#high-performance-web-server-based-on-reactor)
+  - [Overall structure of Reactor server](#overall-structure-of-reactor-server)
+  - [Project details](#project-details)
+    - [epoll\_server](#epoll_server)
+    - [reactor\_server](#reactor_server)
+  - [Introduction to project principles](#introduction-to-project-principles)
 
-**Among them, the basic principles of epoll in this project and the basic principles of multiplexing high-performance IO can be seen in my other repo:**
+
+A high-performance web server based on the multiplexed Reactor pattern, the underlying implementation uses the epoll model.
+
+I will continue to update this project, continue to improve the backend and frontend issues, and create a complete project. So far, the project has completed the most basic back-end construction and simple front-end construction.
+
+This is the v2.0 version. Here, in April 2024, I remade this project and the code was optimized to a certain extent.
+
+**Older versions can be found in Release: v1.0**
+
+**Among them, the basic principles of epoll in this project and the basic principles of multiplexing high-performance IO can be seen in my other repo**
 **https://github.com/Yufccode/Multiplexing-high-performance-IO-server**
 
-## 0. Overall structure of Reactor server
+## Overall structure of Reactor server
 
-![](./figs/0.png)
+![](./assets/server-struct.png)
 
-## 1. Implementation effect
+## Project details
+
+Two servers are implemented in the project.
+
+### epoll_server
+
+By encapsulating the epoll feature of Linux, an epoll-based network server is implemented. This network server does not have any encapsulation and can be tested through telnet.
+
+**Implementation details and code explanations can be found at: [work_epoll.md](./docs/work_epoll.md)**
+
+### reactor_server
+
+On the basis of multi-channel transfer, the server is further encapsulated and the dispatch feature is added to realize the reactor mode web server.
+
+- The backend adopts epoll's multi-pass listening mode
+- Encapsulation using reactor mode
+- Added web server function, which can analyze http requests and build http responses
+- Add a simple front-end page as a test
+
+**Implementation details and code explanations can be found at: [work_reactor.md](./docs/work_reactor.md)**
 
 
-**Backend effects**
+## Introduction to project principles
 
-![](./figs/1.png)Backend effects
+This project is based on Socker programming and uses epoll-style multi-way transfer to build a Reactor mode network server.
 
-In the backend, we can see the obtained HTTP request message in 'stdout', and of course, we can also see the HTTP message in the log file.
+This project is actually the core of the Nginx server.
 
-**Front end effects**
+For information on the implementation principles of Nginx, the principles of asynchronous IO, and the principles of multiplexing, please see the following link.
 
-Display for personal blog.
+- **[中文-introduction](./docs/introduction-cn.md)**
 
-![](./figs/2.png)
-
-## 2. operating method
-
-**Env**
-
-- Linux ALiCentos7 3.10.0-1160.88.1.el7.x86_64 #1 SMP Tue Mar 7 15:41:52 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
-
-- gcc (GCC) 8.3.1 20190311 (Red Hat 8.3.1-3)
-
-clone from github.
-
-```bash
-git clone https://github.com/Yufccode/Reactor-based-HyperWebServer.git
-```
-
-enter the dir.
-
-```bash
-cd Reactor-based-HyperWebServer
-```
-
-make.
-
-```bash
-make clean;
-make;
-```
-
-start the sever.
-
-```
-./WebServer
-```
-
-Note: If running this project on a cloud server, the '8080' port number needs to be opened, otherwise it may be inaccessible due to the firewall.
-
-Open the browser and access the server.
-
-**Local Access**
-
-enter the url。
-
-```url
-127.0.0.1:8080
-```
-
-**other machines access**
-
-enter the url.
-
-```url
-(server ip):8080 # xxx.xxx.xxx.xxx:8080
-```
-
-## 3. File Structure
-
-```bash
-yufc@ALiCentos7:~/Src/Bit-Project/WebServer-reactor$ tree .
-.
-├── CleanLogs.sh # Clear all log file content scripts
-├── Logs
-│   ├── Requests.log # Received the log file saved in the HTTP message
-│   └── WebServer.log # Server printed log save file
-├── makefile
-├── Reactor # Reactor pattern underlying server files
-│   ├── Epoll.hpp
-│   ├── Log.hpp
-│   ├── Protocol.hpp
-│   ├── Reactor-server.hpp
-│   └── Sock.hpp
-├── README.md
-├── start-main.cc
-├── text
-│   └── ziliao.txt # some Reactor pattern underlying server files
-├── tools
-│   ├── main.cc-backup # main function backup
-│   └── ulity.hpp # Tool related interface header files
-├── WebServer # executable program
-├── WebServer.hpp # Web server header file
-├── wwwroot # Front end root directory
-│   ├── error
-│   │   └── 404.html
-│   └── index.html
-└── wwwroot-backup # Front end root directory backup
-    ├── my_blog_root
-    │   └── index.html
-    └── wwwroot
-        ├── error
-        │   └── 404.html
-        └── index.html
-
-10 directories, 21 files
-yufc@ALiCentos7:~/Src/Bit-Project/WebServer-reactor$
-```
-
-## 4. 项目原理简介
-
-This project is based on Docker programming and uses epoll form of multiplexing to build a Reactor mode network server.
-
-Among them, 'WebServer. hpp' is the encapsulation of the underlying 'Reactor' server.
-
-This project is actually the core of Nginx server.
-
-For the implementation principles of Nginx, asynchronous IO, and multiplexing, please refer to the following links.
-
-- **[中文-introduction](./introduction-cn.md)**
-
-- **[English-introduction](./introduction.md)**
+- **[English-introduction](./docs/introduction.md)**
